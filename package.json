@@ -1,0 +1,29 @@
+{
+  "name": "apiMEAN",
+  "version": "1.0.0",
+  "description": "Creation d'une api avec express 4 et mongodb",
+  "main": "server.js",
+  "scripts": {
+    "test": "exe"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.21"
+  },
+  "repository": {
+    "type": "git",
+    "url": "koudou_marius@yahoo.fr"
+  },
+  "keywords": [
+    "JDdexter"
+  ],
+  "author": "marius",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "jsonwebtoken": "^5.0.0",
+    "mongoose": "~3.6.13",
+    "morgan": "^1.5.2"
+  }
+}
