@@ -19,7 +19,7 @@ module.exports = function(app,apiRoutes){
     /**
      * injection de la fonction de verification dans le middleware
      */
-     apiRoutes.use(citoyenController.checkAuth);
+     //apiRoutes.use(citoyenController.checkAuth);
 
     /*
     * Route api du citoyen

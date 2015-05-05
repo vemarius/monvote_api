@@ -2,6 +2,9 @@
  * Created by marius koudou on 10/04/2015.
  */
 var citoyenModel = require('../models/Citoyens');
+var villesModel    = require('../models/Villes')
+var quartierModel  = require('../models/Quartiers')
+var paysModel      = require('../models/Quartiers')
 var jwt          = require('jsonwebtoken');
 
 exports.checkAuth        = function(req,res,next){
@@ -72,7 +75,9 @@ exports.authentification = function(req,res){
 
 exports.getCitoyen = function(req,res){
     citoyenModel.find()
-        .populate('pays')
+        .populate('_pays')
+        .populate('_ville')
+        .populate('_quartier')
         .exec(function(err,citoyens){
         if(err){  res.json({response: false,message: "Une erreur s'est produite : " + err}); }
         res.json({response: true,data:citoyens});
@@ -102,6 +107,7 @@ exports.addCitoyen = function(req,res){
                 citoyens.email             = req.body.email;
                 citoyens.password          = req.body.password;
                 citoyens.save(function(err){
+
                     if(err){ res.json({response: false,data: "Une erreur s'est produite pendant l'enregistrement" })};
                     res.json({response: true,message: "Le citoyen a été enregistré avec succes ",data:citoyens});
                 });
@@ -114,6 +120,9 @@ exports.addCitoyen = function(req,res){
 
 exports.getCitoyenById = function(req,res){
     citoyenModel.findOne({_id:req.params.citoyen_id})
+        .populate('_pays')
+        .populate('_ville')
+        .populate('_quartier')
         .exec(function(err,citoyen){
         if(err){ res.json({response: false,data: "Une erreur s'est produite pendant l'operation" }) }
         res.json({response: true,data:citoyen});

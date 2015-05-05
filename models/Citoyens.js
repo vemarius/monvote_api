@@ -8,9 +8,9 @@ var Schema      = mongoose.Schema;
 var citoyensSchema =  Schema({
     nom           :{type:String},
     prenoms       :{type:String},
-    _pays         :{type:Schema.Types.ObjectId,ref:'pays'},
-    _ville        :{type:Schema.Types.ObjectId,ref:'villes'},
-    _quartier     :{type:Schema.Types.ObjectId,ref:'quartiers'},
+    _pays         :{type:String,ref:'pays'},
+    _ville        :{type:String,ref:'villes'},
+    _quartier     :{type:String,ref:'quartiers'},
     telephone     :String,
     email         :{type:String},
     password      :{type:String}

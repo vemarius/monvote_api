@@ -8,8 +8,8 @@ var tacheEtapeSchema =  Schema({
     description:String,
     dateDebut       : {type:Date},
     dateFin         : {type:Date},
-    _etapes         : {type:Schema.Types.ObjectId,ref:'etapes'},
-    _lieuEnrolement : [{type:Schema.Types.ObjectId,ref:'lieuEnrolement'}],
-    _pieceFournir   : [{type:Schema.Types.ObjectId,ref:'pieceFournir'}]
+    _etapes         : {type:String,ref:'etapes'},
+    _lieuEnrolement : [{type:String,ref:'lieuEnrolement'}],
+    _pieceFournir   : [{type:String,ref:'pieceFournir'}]
 });
 module.exports  = mongoose.model('taches',tacheEtapeSchema);

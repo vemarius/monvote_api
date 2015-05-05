@@ -11,7 +11,11 @@ var lieuxModel = require('../models/LieusEnrolement')
  */
 
 exports.getLieux = function(req,res){
-    lieuxModel.find().exec(function(err,lieux){
+    lieuxModel.find()
+        .populate('_pays')
+        .populate('_ville')
+        .populate('_quartier')
+        .exec(function(err,lieux){
         if(err){ res.json({response:false, message:"Une erreur s'est produite : " + err}) }
         res.json({response: true,data:lieux})
     });
@@ -34,7 +38,11 @@ exports.addLieux = function(req,res){
 };
 
 exports.lieuById = function(req,res){
-    lieuxModel.findOne({_id:req.params.lieu_id}).exec(function(err,lieu){
+    lieuxModel.findOne({_id:req.params.lieu_id})
+        .populate('_pays')
+        .populate('_ville')
+        .populate('_quartier')
+        .exec(function(err,lieu){
         if(err){ res.json({response: false,data: "Une erreur s'est produite pendant l'operation" }) }
         res.json({response: true,data:lieu});
     });

@@ -8,7 +8,9 @@ var etapeModel = require('../models/Etapes')
  */
 
 exports.getEtapes = function(req,res){
-    etapeModel.find().exec(function(err,etapes){
+    etapeModel.find()
+          .populate('_taches')
+          .exec(function(err,etapes){
           if(err){ res.json({response:false, message:"Une erreur s'est produite : " + err}) }
           res.json({response: true,data:etapes})
     });

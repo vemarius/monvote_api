@@ -7,7 +7,7 @@ var Schema   = mongoose.Schema;
 var quartiersSchema =  Schema({
     code :String,
     libelle:String,
-    _villes:{type:Schema.Types.ObjectId,ref:'villesSchema'}
+    _villes:{type:String,ref:'villesSchema'}
 });
 
 module.exports = mongoose.model('quartiers',quartiersSchema);

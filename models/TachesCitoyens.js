@@ -5,9 +5,9 @@ mongoose = require("mongoose");
 Schema   = mongoose.Schema;
 
 var tachesCitoyensSchema = Schema({
-    _taches  :{type:Schema.Types.ObjectId , ref:'taches'},
-    _citoyens:{type:Schema.Types.ObjectId , ref:'citoyens'},
-    _etapes :{type:Schema.Types.ObjectId, ref:'etapes'},
+    _taches  :{type:String , ref:'taches'},
+    _citoyens:{type:String , ref:'citoyens'},
+    _etapes  :{type:String, ref:'etapes'},
     status:Boolean
 });
 
